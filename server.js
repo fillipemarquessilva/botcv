@@ -86,5 +86,5 @@ app.post('/launch', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor iniciado em http://localhost:${port}`);
+    console.log(`Servidor iniciado em https://fillipemarquessilva.github.io/botcv`);
 });
