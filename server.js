@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 
-app.post('/launch', async (req, res) => {
+app.post('https://botcv-gamma.vercel.app/launch', async (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
 
@@ -91,5 +91,5 @@ app.post('/launch', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor iniciado em https://fillipemarquessilva.github.io/botcv`);
+    console.log(`Servidor iniciado em https://botcv-gamma.vercel.app`);
 });
