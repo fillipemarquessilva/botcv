@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 app.post('/launch', async (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
-    //const { usuario, senha } = req.body;
 
     const browser = await puppeteer.launch({ headless: false });
 
@@ -37,10 +36,10 @@ app.post('/launch', async (req, res) => {
 
         // Clica no botão de login
         await page.click('button[type="submit"]');
-        console.log("Login realizado com sucesso")
-
+        
         // Aguarda até que a navegação após o login seja concluída
         await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        console.log("Login realizado com sucesso")
 
         // Aguarda até que o seletor do perfil seja visível e, em seguida, clica nele
         await page.waitForSelector('div[data-test-id="select-profile-card"]', { visible: true });

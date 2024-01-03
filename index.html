@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,12 @@
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+
     }
 
     label {
@@ -22,6 +29,7 @@
     }
 
     button {
+      width: 107%;
       padding: 10px;
       background-color: #4CAF50;
       color: white;
@@ -33,13 +41,21 @@
     button:hover {
       background-color: #45a049;
     }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      
+    }
   </style>
 </head>
+
 <body>
 
-  <h2>Lançamento Automatizado</h2>
+
 
   <form id="loginForm">
+    <h2>Lançamento Automatizado</h2>
     <label for="email">Email:</label>
     <input type="text" id="usuario" name="email" required>
 
@@ -52,6 +68,7 @@
     <button type="button" onclick="launchAutomation()">Iniciar Lançamento</button>
   </form>
 
+  <script src="./index.js"></script>
   <script>
     async function launchAutomation() {
       const usuario = document.getElementById('usuario').value;
@@ -75,4 +92,5 @@
   </script>
 
 </body>
+
 </html>
