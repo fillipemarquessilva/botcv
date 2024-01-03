@@ -5,6 +5,11 @@ const puppeteer = require('puppeteer');
 const app = express();
 const port = 3000;
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://botcv-gamma.vercel.app');
+    next();
+  });
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
