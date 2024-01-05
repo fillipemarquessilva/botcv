@@ -7,11 +7,9 @@ const port = 3000;
 
 app.use(express.json());
 
-// Servir arquivos estáticos do diretório 'public'
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 
 });
 
@@ -90,7 +88,7 @@ app.post('/launch', async (req, res) => {
         res.status(500).send('Erro ao iniciar o lançamento.');
     } finally {
         console.log("Lançamento realizado com sucesso")
-        await browser.close();
+        //await browser.close();
     }
 });
 
