@@ -45,7 +45,7 @@
     form {
       display: flex;
       flex-direction: column;
-      
+
     }
   </style>
 </head>
@@ -68,8 +68,6 @@
     <button type="button" onclick="launchAutomation()">Iniciar Lançamento</button>
   </form>
 
-  <script src="/server.js"></script>
-
   <script>
     async function launchAutomation() {
       const usuario = document.getElementById('usuario').value;
@@ -78,15 +76,17 @@
 
       const response = await fetch('https://botcv.onrender.com/launch', {
         method: 'POST',
+        mode: 'cors',  // Adicione esta linha
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ usuario, senha, quantidadeDesejada }),
       });
 
+
       if (response.ok) {
         alert('Lançamento realizado com sucesso!');
-      } 
+      }
       else {
         alert('Erro ao iniciar o lançamento. Verifique suas credenciais.');
       }

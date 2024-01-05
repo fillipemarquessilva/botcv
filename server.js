@@ -25,11 +25,11 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/launch', async (req, res ) =>{
+app.get('https://botcv.onrender.com/launch', async (req, res ) =>{
     res.send("pagina de lançamento")
 })
 
-app.post('/launch', async (req, res) => {
+app.post('https://botcv.onrender.com/launch', async (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
 
