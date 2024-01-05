@@ -3,16 +3,27 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 
+// Adicione o middleware CORS antes de suas rotas
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  
+    // Permitir que o navegador envie a solicitação com os métodos especificados
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(200);
+    } else {
+      next();
+    }
+  });
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 
 });
-
 
 app.get('/launch', async (req, res ) =>{
     res.send("pagina de lançamento")
@@ -92,6 +103,7 @@ app.post('/launch', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Servidor iniciado em localhost ${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor ouvindo na porta ${PORT}`);
 });
