@@ -5,18 +5,13 @@ const puppeteer = require('puppeteer');
 const app = express();
 const port = 3000;
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://botcv-gamma.vercel.app');
-    next();
-  });
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 
-app.post('https://botcv-gamma.vercel.app/launch', async (req, res) => {
+app.post('/launch', async (req, res) => {
     const usuario = req.body.usuario;
     const senha = req.body.senha;
 
@@ -91,5 +86,5 @@ app.post('https://botcv-gamma.vercel.app/launch', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor iniciado em https://botcv-gamma.vercel.app`);
+    console.log(`Servidor iniciado em localhost ${port}`);
 });
